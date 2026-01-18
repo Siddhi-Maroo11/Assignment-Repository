@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Portal</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<main>
+
+<header class="header">
+  <div class="top-left">Job Portal</div>
+</header>
+
+<section class="search-section">
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search by job title, company, location or type"
+    />
+    <span id="clearSearch" class="clear-search hidden">✕</span>
+    <button>Search</button>
+  </div>
+</section>
+
+<section class="filters">
+  <select id="filterType">
+    <option value="">All Job Types</option>
+  </select>
+
+  <select id="filterLocation">
+    <option value="">All Locations</option>
+  </select>
+
+  <select id="filterExperience">
+    <option value="">All Experience Levels</option>
+  </select>
+</section>
+
+<section id="jobListPage">
+  <div id="jobGrid" class="job-grid"></div>
+
+  <div class="pagination">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+</section>
+
+<section id="jobDetailsPage" class="job-details hidden">
+  <h2 id="detailsTitle" class="details-title"></h2>
+  <p id="detailsCompany" class="details-company"></p>
+  <div id="jobDetailsContent"></div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

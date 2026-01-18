@@ -1,0 +1,418 @@
+[
+  {
+    "id": 1,
+    "title": "Full Stack Software Engineer",
+    "company": "In Time Tec",
+    "designation": "Dot Net Fullstack Developer",
+    "experience": "2 to 3 years",
+    "location": ["Jaipur", "Bangalore"],
+    "type": "Full-time",
+    "department": "All Departments",
+    "openPositions": 2,
+    "education": "B.Tech / M.Tech",
+    "description": "In Time Tec is an award-winning IT & software company offering progressive software development services. We are looking for individuals with a positive mindset and strong problem-solving skills.",
+    "overview": "We are seeking an experienced and ambitious Full Stack Software Engineer passionate about technology and innovation.",
+    "responsibilities": [
+      "Develop frontend applications using ReactJS",
+      "Build backend services using ASP.NET Core",
+      "Consume RESTful APIs",
+      "Write clean and maintainable code",
+      "Participate in code reviews and testing"
+    ],
+    "skills": [
+      "ASP.NET Core",
+      ".Net Core",
+      "React.js",
+      "SQL",
+      "Unit Testing Framework"
+    ],
+    "desirableSkills": [
+      "Azure or AWS",
+      "Microservices",
+      "Agile Methodology"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Frontend Developer",
+    "company": "Infosys",
+    "designation": "Software Engineer",
+    "experience": "0 to 1 year",
+    "location": ["Pune"],
+    "type": "Full-time",
+    "department": "Engineering",
+    "openPositions": 3,
+    "education": "B.Tech",
+    "description": "Infosys is a global leader in digital services and consulting.",
+    "overview": "Looking for a frontend developer with strong UI fundamentals.",
+    "responsibilities": [
+      "Build responsive UI",
+      "Convert designs into code",
+      "Optimize performance"
+    ],
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "desirableSkills": ["React.js"]
+  },
+  {
+    "id": 3,
+    "title": "Backend Developer",
+    "company": "TCS",
+    "designation": "Backend Engineer",
+    "experience": "2 to 3 years",
+    "location": ["Bangalore"],
+    "type": "Full-time",
+    "department": "Technology",
+    "openPositions": 4,
+    "education": "B.Tech",
+    "description": "TCS provides IT services and business solutions.",
+    "overview": "Backend developer to work on scalable applications.",
+    "responsibilities": [
+      "Develop APIs",
+      "Manage databases",
+      "Optimize backend performance"
+    ],
+    "skills": ["Node.js", "Express", "SQL"],
+    "desirableSkills": ["Docker"]
+  },
+  {
+    "id": 4,
+    "title": "Manual QA Engineer",
+    "company": "Wipro",
+    "designation": "QA Engineer",
+    "experience": "1 to 2 years",
+    "location": ["Jaipur"],
+    "type": "Full-time",
+    "department": "Quality Assurance",
+    "openPositions": 2,
+    "education": "B.Tech",
+    "description": "Wipro is a leading global information technology company.",
+    "overview": "Manual tester responsible for application quality.",
+    "responsibilities": [
+      "Prepare test cases",
+      "Execute test plans",
+      "Report bugs"
+    ],
+    "skills": ["Manual Testing", "Test Documentation"],
+    "desirableSkills": ["Automation Basics"]
+  },
+  {
+    "id": 5,
+    "title": "Automation Tester",
+    "company": "Capgemini",
+    "designation": "Automation QA Engineer",
+    "experience": "3 to 4 years",
+    "location": ["Bangalore"],
+    "type": "Full-time",
+    "department": "QA",
+    "openPositions": 1,
+    "education": "B.Tech",
+    "description": "Capgemini helps organizations accelerate digital transformation.",
+    "overview": "Automation tester to build and maintain test frameworks.",
+    "responsibilities": [
+      "Write automation scripts",
+      "Maintain test suites"
+    ],
+    "skills": ["Selenium", "Java"],
+    "desirableSkills": ["CI/CD"]
+  },
+  {
+    "id": 6,
+    "title": "UI/UX Designer",
+    "company": "Zoho",
+    "designation": "UI/UX Designer",
+    "experience": "2 to 3 years",
+    "location": ["Chennai"],
+    "type": "Full-time",
+    "department": "Design",
+    "openPositions": 2,
+    "education": "Any Degree",
+    "description": "Zoho creates powerful cloud-based business software.",
+    "overview": "Designer to craft clean and user-friendly interfaces.",
+    "responsibilities": [
+      "Create wireframes",
+      "Design UI components"
+    ],
+    "skills": ["Figma", "UX Design"],
+    "desirableSkills": ["Design Systems"]
+  },
+  {
+    "id": 7,
+    "title": "Content Writer",
+    "company": "Pepperfry",
+    "designation": "Content Writer",
+    "experience": "0 to 1 year",
+    "location": ["Remote"],
+    "type": "Part-time",
+    "department": "Marketing",
+    "openPositions": 1,
+    "education": "Any Degree",
+    "description": "Pepperfry is India’s largest online furniture marketplace.",
+    "overview": "Content writer to create engaging articles.",
+    "responsibilities": [
+      "Write blogs",
+      "Edit marketing content"
+    ],
+    "skills": ["Writing", "SEO"],
+    "desirableSkills": ["Creative Writing"]
+  },
+  {
+    "id": 8,
+    "title": "Digital Marketing Executive",
+    "company": "Byju's",
+    "designation": "Marketing Executive",
+    "experience": "1 to 2 years",
+    "location": ["Bangalore"],
+    "type": "Full-time",
+    "department": "Marketing",
+    "openPositions": 3,
+    "education": "Any Degree",
+    "description": "Byju’s is a leading global EdTech company.",
+    "overview": "Manage online marketing campaigns.",
+    "responsibilities": [
+      "Run ad campaigns",
+      "Analyze metrics"
+    ],
+    "skills": ["SEO", "Google Ads"],
+    "desirableSkills": ["Analytics"]
+  },
+  {
+    "id": 9,
+    "title": "HR Recruiter",
+    "company": "Accenture",
+    "designation": "HR Executive",
+    "experience": "2 to 4 years",
+    "location": ["Hyderabad"],
+    "type": "Full-time",
+    "department": "Human Resources",
+    "openPositions": 2,
+    "education": "MBA",
+    "description": "Accenture is a global professional services company.",
+    "overview": "Handle end-to-end recruitment.",
+    "responsibilities": [
+      "Screen candidates",
+      "Schedule interviews"
+    ],
+    "skills": ["Recruitment", "Communication"],
+    "desirableSkills": ["ATS Tools"]
+  },
+  {
+    "id": 10,
+    "title": "Data Analyst",
+    "company": "Deloitte",
+    "designation": "Data Analyst",
+    "experience": "2 to 3 years",
+    "location": ["Mumbai"],
+    "type": "Full-time",
+    "department": "Analytics",
+    "openPositions": 2,
+    "education": "B.Tech",
+    "description": "Deloitte provides audit and consulting services.",
+    "overview": "Analyze and interpret data.",
+    "responsibilities": [
+      "Data analysis",
+      "Create reports"
+    ],
+    "skills": ["Excel", "SQL"],
+    "desirableSkills": ["Power BI"]
+  },
+  {
+    "id": 11,
+    "title": "Business Analyst",
+    "company": "EY",
+    "designation": "Business Analyst",
+    "experience": "3 to 5 years",
+    "location": ["Gurgaon"],
+    "type": "Full-time",
+    "department": "Business",
+    "openPositions": 1,
+    "education": "MBA",
+    "description": "EY builds a better working world.",
+    "overview": "Bridge business and technology.",
+    "responsibilities": [
+      "Gather requirements",
+      "Create documentation"
+    ],
+    "skills": ["Analysis", "Communication"],
+    "desirableSkills": ["Agile"]
+  },
+  {
+    "id": 12,
+    "title": "Mobile App Developer",
+    "company": "Swiggy",
+    "designation": "App Developer",
+    "experience": "2 to 4 years",
+    "location": ["Bangalore"],
+    "type": "Full-time",
+    "department": "Engineering",
+    "openPositions": 2,
+    "education": "B.Tech",
+    "description": "Swiggy is India’s leading food delivery platform.",
+    "overview": "Develop Android and iOS apps.",
+    "responsibilities": [
+      "Build mobile apps",
+      "Fix bugs"
+    ],
+    "skills": ["Flutter", "Android"],
+    "desirableSkills": ["iOS"]
+  },
+  {
+    "id": 13,
+    "title": "Cloud Engineer",
+    "company": "Amazon",
+    "designation": "Cloud Engineer",
+    "experience": "4 to 6 years",
+    "location": ["Hyderabad"],
+    "type": "Full-time",
+    "department": "Cloud",
+    "openPositions": 2,
+    "education": "B.Tech",
+    "description": "Amazon is a global technology company.",
+    "overview": "Manage cloud infrastructure.",
+    "responsibilities": [
+      "Maintain AWS services",
+      "Optimize cloud cost"
+    ],
+    "skills": ["AWS", "Linux"],
+    "desirableSkills": ["Terraform"]
+  },
+  {
+    "id": 14,
+    "title": "DevOps Engineer",
+    "company": "Flipkart",
+    "designation": "DevOps Engineer",
+    "experience": "3 to 5 years",
+    "location": ["Bangalore"],
+    "type": "Full-time",
+    "department": "DevOps",
+    "openPositions": 1,
+    "education": "B.Tech",
+    "description": "Flipkart is India’s leading e-commerce platform.",
+    "overview": "Maintain CI/CD pipelines.",
+    "responsibilities": [
+      "Deploy applications",
+      "Monitor systems"
+    ],
+    "skills": ["Docker", "Jenkins"],
+    "desirableSkills": ["Kubernetes"]
+  },
+  {
+    "id": 15,
+    "title": "Technical Support Engineer",
+    "company": "IBM",
+    "designation": "Support Engineer",
+    "experience": "0 to 2 years",
+    "location": ["Pune"],
+    "type": "Full-time",
+    "department": "Support",
+    "openPositions": 3,
+    "education": "B.Tech",
+    "description": "IBM is a multinational technology company.",
+    "overview": "Provide technical assistance.",
+    "responsibilities": [
+      "Resolve tickets",
+      "Assist customers"
+    ],
+    "skills": ["Networking", "Troubleshooting"],
+    "desirableSkills": ["Linux"]
+  },
+  {
+    "id": 16,
+    "title": "System Administrator",
+    "company": "HCL",
+    "designation": "System Admin",
+    "experience": "3 to 5 years",
+    "location": ["Noida"],
+    "type": "Full-time",
+    "department": "IT",
+    "openPositions": 1,
+    "education": "B.Tech",
+    "description": "HCL delivers IT services globally.",
+    "overview": "Manage servers and infrastructure.",
+    "responsibilities": [
+      "Monitor servers",
+      "Ensure uptime"
+    ],
+    "skills": ["Linux", "Windows Server"],
+    "desirableSkills": ["Shell Scripting"]
+  },
+  {
+    "id": 17,
+    "title": "Graphic Designer",
+    "company": "Canva",
+    "designation": "Graphic Designer",
+    "experience": "1 to 3 years",
+    "location": ["Remote"],
+    "type": "Part-time",
+    "department": "Design",
+    "openPositions": 2,
+    "education": "Any Degree",
+    "description": "Canva empowers everyone to design.",
+    "overview": "Create visual assets.",
+    "responsibilities": [
+      "Design graphics",
+      "Create templates"
+    ],
+    "skills": ["Photoshop", "Illustrator"],
+    "desirableSkills": ["Branding"]
+  },
+  {
+    "id": 18,
+    "title": "Product Manager",
+    "company": "Paytm",
+    "designation": "Product Manager",
+    "experience": "5 to 7 years",
+    "location": ["Noida"],
+    "type": "Full-time",
+    "department": "Product",
+    "openPositions": 1,
+    "education": "MBA",
+    "description": "Paytm is India’s leading fintech platform.",
+    "overview": "Own product roadmap.",
+    "responsibilities": [
+      "Define features",
+      "Work with stakeholders"
+    ],
+    "skills": ["Product Strategy"],
+    "desirableSkills": ["Analytics"]
+  },
+  {
+    "id": 19,
+    "title": "AI/ML Engineer",
+    "company": "Microsoft",
+    "designation": "AI Engineer",
+    "experience": "3 to 6 years",
+    "location": ["Bangalore"],
+    "type": "Full-time",
+    "department": "AI",
+    "openPositions": 2,
+    "education": "B.Tech",
+    "description": "Microsoft builds intelligent cloud solutions.",
+    "overview": "Develop AI/ML models.",
+    "responsibilities": [
+      "Build ML models",
+      "Train datasets"
+    ],
+    "skills": ["Python", "Machine Learning"],
+    "desirableSkills": ["Deep Learning"]
+  },
+  {
+    "id": 20,
+    "title": "Intern Software Engineer",
+    "company": "Startup Inc",
+    "designation": "Software Intern",
+    "experience": "Fresher",
+    "location": ["Remote"],
+    "type": "Remote",
+    "department": "Engineering",
+    "openPositions": 5,
+    "education": "Pursuing B.Tech",
+    "description": "Startup Inc builds innovative software products.",
+    "overview": "Learn and assist development tasks.",
+    "responsibilities": [
+      "Assist senior developers",
+      "Fix bugs"
+    ],
+    "skills": ["JavaScript", "Basics of Programming"],
+    "desirableSkills": ["React"]
+  }
+]
