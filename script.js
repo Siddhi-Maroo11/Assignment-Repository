@@ -25,45 +25,11 @@ const jobDetailsContent = document.getElementById("jobDetailsContent");
 const detailsTitle = document.getElementById("detailsTitle");
 const detailsCompany = document.getElementById("detailsCompany");
 
-function saveState() {
-  localStorage.setItem(
-    "jobPortalState",
-    JSON.stringify({
-      searchText: state.searchText,
-      selectedType: state.selectedType,
-      selectedLocation: state.selectedLocation,
-      selectedExperience: state.selectedExperience,
-      currentPage: state.currentPage
-    })
-  );
-}
-
-function loadState() {
-  const savedState = localStorage.getItem("jobPortalState");
-  if (!savedState) return;
-  const parsedState = JSON.parse(savedState);
-  state.searchText = parsedState.searchText || "";
-  state.selectedType = parsedState.selectedType || "";
-  state.selectedLocation = parsedState.selectedLocation || "";
-  state.selectedExperience = parsedState.selectedExperience || "";
-  state.currentPage = parsedState.currentPage || 1;
-}
-
-function syncUIWithState() {
-  searchInput.value = state.searchText;
-  filterType.value = state.selectedType;
-  filterLocation.value = state.selectedLocation;
-  filterExperience.value = state.selectedExperience;
-  clearSearch.classList.toggle("hidden", !state.searchText);
-}
-
 fetch("jobs.json")
   .then(response => response.json())
   .then(jobData => {
     state.jobs = jobData;
     populateFilters(jobData);
-    loadState();
-    syncUIWithState();
     applySearchAndFilters();
   });
 
@@ -106,11 +72,15 @@ function applySearchAndFilters() {
 
   state.currentPage = 1;
   renderJobs();
-  saveState();
 }
 
 function renderJobs() {
   jobGrid.innerHTML = "";
+
+  if (state.filteredJobs.length === 0) {
+    jobGrid.innerHTML = `<div class="no-jobs">No jobs found</div>`;
+    return;
+  }
 
   const startIndex = (state.currentPage - 1) * jobsPerPage;
   const endIndex = startIndex + jobsPerPage;
@@ -121,13 +91,21 @@ function renderJobs() {
 
     jobCard.innerHTML = `
       <h3>${job.title}</h3>
-      <div class="job-meta">${job.location.join(", ")}</div>
-      <div class="job-meta">${job.type}</div>
+      <div class="job-meta">Company: ${job.company}</div>
+      <div class="job-meta">Location: ${job.location.join(", ")}</div>
+      <div class="job-meta">Type: ${job.type}</div>
       <p class="job-desc">${job.description.slice(0, 90)}...</p>
+      <button class="view-job-btn" data-id="${job.id}">Click</button>
     `;
 
-    jobCard.addEventListener("click", () => openJobDetails(job.id));
     jobGrid.appendChild(jobCard);
+  });
+
+  document.querySelectorAll(".view-job-btn").forEach(button => {
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+      openJobDetails(Number(button.dataset.id));
+    });
   });
 }
 
@@ -172,14 +150,18 @@ function openJobDetails(jobId) {
     <div class="detail-section">
       <h3>Responsibilities</h3>
       <ul>
-        ${selectedJob.responsibilities.map(r => `<li>${r}</li>`).join("")}
+        ${selectedJob.responsibilities
+          .map(responsibility => `<li>${responsibility}</li>`)
+          .join("")}
       </ul>
     </div>
 
     <div class="detail-section">
       <h3>Skills Required</h3>
       <ul>
-        ${selectedJob.skills.map(s => `<li>${s}</li>`).join("")}
+        ${selectedJob.skills
+          .map(skill => `<li>${skill}</li>`)
+          .join("")}
       </ul>
     </div>
 
@@ -221,7 +203,6 @@ nextBtn.addEventListener("click", () => {
   if (state.currentPage * jobsPerPage < state.filteredJobs.length) {
     state.currentPage++;
     renderJobs();
-    saveState();
   }
 });
 
@@ -229,7 +210,6 @@ prevBtn.addEventListener("click", () => {
   if (state.currentPage > 1) {
     state.currentPage--;
     renderJobs();
-    saveState();
   }
 });
 
