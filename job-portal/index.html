@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Portal</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!--<link rel="stylesheet" href="css/styles.css" />-->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/job-card.css">
+  <link rel="stylesheet" href="css/pagination.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+<main>
+
+<header class="header">
+  <div class="top-left">Job Portal</div>
+</header>
+
+<section class="search-section">
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search by job title, company, location or type"
+    />
+    <span id="clearSearch" class="clear-search hidden">✕</span>
+   <button>Search</button> 
+  </div>
+</section>
+
+<section class="filters">
+  <select id="filterType">
+    <option value="">All Job Types</option>
+  </select>
+
+  <select id="filterLocation">
+    <option value="">All Locations</option>
+  </select>
+
+  <select id="filterExperience">
+    <option value="">All Experience Levels</option>
+  </select>
+</section>
+
+<section id="jobListPage">
+  <div id="jobGrid" class="job-grid"></div>
+
+  <div class="pagination">
+  </div>
+</section>
+
+<section id="jobDetailsPage" class="job-details hidden">
+  <h2 id="detailsTitle" class="details-title"></h2>
+  <p id="detailsCompany" class="details-company"></p>
+  <div id="jobDetailsContent"></div>
+</section>
+
+</main>
+<!-- <script src="js/state.js"></script>
+<script src="js/api.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/jobs.js"></script>
+<script src="js/job-details.js"></script>
+<script src="js/pagination.js"></script>
+<script src="js/script.js"></script> -->
+
+<script type="module" src="js/script.js"></script>
+
+</body>
+</html>
