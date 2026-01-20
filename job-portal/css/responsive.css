@@ -1,0 +1,36 @@
+@media (max-width: 1024px) {
+  .job-grid {
+    padding: 18px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-box {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .search-box input {
+    font-size: 15px;
+  }
+
+  .job-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box input,
+  .search-box button {
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .clear-search {
+    right: 20px;
+  }
+}
