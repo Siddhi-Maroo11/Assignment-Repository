@@ -17,6 +17,8 @@ if (state.filteredJobs.length === 0) {
       </div>
     </div>
   `;
+
+  renderPagination();
   return;
 }
 

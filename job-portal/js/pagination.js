@@ -21,50 +21,21 @@ export function renderPagination() {
   };
   paginationContainer.appendChild(prevButton);
 
-  function createPageButton(pageNumber) {
-    const button = document.createElement("button");
-    button.textContent = pageNumber;
+  for (let page = 1; page <= totalPages; page++) {
+    const btn = document.createElement("button");
+    btn.textContent = page;
 
-    if (pageNumber === state.currentPage) {
-      button.classList.add("active");
+    if (page === state.currentPage) {
+      btn.classList.add("active");
     }
 
-    button.onclick = () => {
-      state.currentPage = pageNumber;
+    btn.onclick = () => {
+      state.currentPage = page;
       renderJobs();
     };
 
-    return button;
+    paginationContainer.appendChild(btn);
   }
-
-  function createDots() {
-    const dots = document.createElement("span");
-    dots.textContent = "...";
-    dots.className = "dots";
-    return dots;
-  }
-
-  const pagesToShow = new Set([
-    1,
-    totalPages,
-    state.currentPage,
-    state.currentPage - 1,
-    state.currentPage + 1
-  ]);
-
-  const sortedPages = [...pagesToShow]
-    .filter(p => p >= 1 && p <= totalPages)
-    .sort((a, b) => a - b);
-
-  let lastPage = 0;
-
-  sortedPages.forEach(page => {
-    if (page - lastPage > 1) {
-      paginationContainer.appendChild(createDots());
-    }
-    paginationContainer.appendChild(createPageButton(page));
-    lastPage = page;
-  });
 
   const nextButton = document.createElement("button");
   nextButton.textContent = ">";
