@@ -59,11 +59,12 @@ export function applySearchAndFilters() {
   const searchValue = state.searchText.toLowerCase();
 
   state.filteredJobs = state.jobs.filter(job => {
+    const { title, company, type, location, experience } = job;
     const searchableText = `
-      ${job.title}
-      ${job.company}
-      ${job.type}
-      ${job.location.join(" ")}
+      ${title}
+      ${company}
+      ${type}
+      ${location.join(" ")}
     `.toLowerCase();
 
     return (
