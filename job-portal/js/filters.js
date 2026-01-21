@@ -74,6 +74,8 @@ export function applySearchAndFilters() {
     );
   });
 
+  state.currentPage = 1;
+
   saveFiltersToSession();
   renderJobs();
 }
