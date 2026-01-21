@@ -7,9 +7,10 @@
 }
 
 .filters select {
+  text-align: center;
   padding: 10px 10px 10px 10px;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
   font-size: 14px;
-  min-width: 180px;
+  min-width: 150px;
 }
