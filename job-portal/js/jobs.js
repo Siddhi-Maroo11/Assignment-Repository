@@ -35,9 +35,7 @@ if (state.filteredJobs.length === 0) {
       <div class="job-meta">Location: ${job.location.join(", ")}</div>
       <div class="job-meta">Type: ${job.type}</div>
       <p class="job-desc">${job.description.slice(0, 90)}...</p>
-<<<<<<< HEAD
       <a href="job-details.html?id=${job.id}" target="_blank" class="view-job-btn">View Job</a>
-=======
 
    <div class="job-actions">
       <a href="job-details.html?id=${job.id}" class="view-job-btn">
@@ -50,7 +48,6 @@ if (state.filteredJobs.length === 0) {
          </svg>
       </button>
    </div>
->>>>>>> 73bbd6e (add a event listener for applied job in the script and adjust bookmark in the jobs.js)
 
     `;
 

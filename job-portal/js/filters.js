@@ -13,7 +13,8 @@ function saveFiltersToSession() {
       selectedType: state.selectedType,
       selectedLocation: state.selectedLocation,
       selectedExperience: state.selectedExperience,
-      currentPage: state.currentPage
+      currentPage: state.currentPage,
+      sortBy: state.sortBy
     })
   );
 }
@@ -24,11 +25,13 @@ export function restoreFilterState() {
 
   const filters = JSON.parse(saved);
 
-  state.searchText = filters.searchText || "";
-  state.selectedType = filters.selectedType || "";
-  state.selectedLocation = filters.selectedLocation || "";
-  state.selectedExperience = filters.selectedExperience || "";
+  state.searchText = filters.searchText ?? "";
+  state.selectedType = filters.selectedType ?? "";
+  state.selectedLocation = filters.selectedLocation ?? "";
+  state.selectedExperience = filters.selectedExperience ?? "";
   state.currentPage = filters.currentPage || 1;
+  state.sortBy = filters.sortBy ?? "";
+
 }
 
 export function populateFilters(jobs) {
@@ -53,6 +56,8 @@ export function populateFilters(jobs) {
   filterExperience.value = state.selectedExperience;
 
   document.getElementById("searchInput").value = state.searchText;
+  document.getElementById("sortSelect").value = state.sortBy;
+
 }
 
 export function applySearchAndFilters() {
@@ -76,7 +81,7 @@ export function applySearchAndFilters() {
   });
 
   state.currentPage = 1;
-
   saveFiltersToSession();
   renderJobs();
 }
+

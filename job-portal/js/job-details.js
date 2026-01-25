@@ -1,3 +1,7 @@
+import { applyForJob } from "./apply.js";
+
+let currentJob = null;
+
 const jobTitleElement = document.getElementById("jobTitle");
 const jobCompanyElement = document.getElementById("jobCompany");
 const jobLocationElement = document.getElementById("jobLocation");
@@ -21,6 +25,8 @@ fetch("data/jobs.json")
       return;
     }
 
+    currentJob = selectedJob; 
+
     jobTitleElement.textContent = selectedJob.title;
     jobCompanyElement.textContent = selectedJob.company;
     jobLocationElement.textContent = selectedJob.location.join(", ");
@@ -43,4 +49,10 @@ fetch("data/jobs.json")
 
 closeButton.addEventListener("click", () => {
   window.close();
+});
+
+const applyBtn = document.getElementById("applyBtn");
+
+applyBtn.addEventListener("click", () => {
+  applyForJob(currentJob);
 });

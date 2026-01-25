@@ -9,14 +9,11 @@ const filterType = document.getElementById("filterType");
 const filterLocation = document.getElementById("filterLocation");
 const filterExperience = document.getElementById("filterExperience");
 
-<<<<<<< HEAD
-=======
 const sortSelect = document.getElementById("sortSelect");
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
->>>>>>> 73bbd6e (add a event listener for applied job in the script and adjust bookmark in the jobs.js)
 searchInput.addEventListener("input", event => {
   state.searchText = event.target.value;
   clearSearch.classList.toggle("hidden", !event.target.value);
@@ -45,9 +42,7 @@ filterExperience.addEventListener("change", event => {
   applySearchAndFilters();
 });
 
-<<<<<<< HEAD
 fetchJobs();
-=======
 sortSelect.addEventListener("change", event => {
   state.sortBy = event.target.value;
   state.currentPage = 1;
@@ -59,4 +54,3 @@ menuBtn.addEventListener("click", () => {
 });
 
 fetchJobs();
->>>>>>> 73bbd6e (add a event listener for applied job in the script and adjust bookmark in the jobs.js)
