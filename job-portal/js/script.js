@@ -1,6 +1,7 @@
 import { state } from "./state.js";
 import { fetchJobs } from "./api.js";
 import { applySearchAndFilters } from "./filters.js";
+import { renderJobs } from "./jobs.js";
 
 const searchInput = document.getElementById("searchInput");
 const clearSearch = document.getElementById("clearSearch");
@@ -8,6 +9,8 @@ const clearSearch = document.getElementById("clearSearch");
 const filterType = document.getElementById("filterType");
 const filterLocation = document.getElementById("filterLocation");
 const filterExperience = document.getElementById("filterExperience");
+
+const sortSelect = document.getElementById("sortSelect");
 
 searchInput.addEventListener("input", event => {
   state.searchText = event.target.value;
@@ -34,6 +37,12 @@ filterLocation.addEventListener("change", event => {
 
 filterExperience.addEventListener("change", event => {
   state.selectedExperience = event.target.value;
+  applySearchAndFilters();
+});
+
+sortSelect.addEventListener("change", event => {
+  state.sortBy = event.target.value;
+  state.currentPage = 1;
   applySearchAndFilters();
 });
 
