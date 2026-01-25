@@ -35,7 +35,22 @@ if (state.filteredJobs.length === 0) {
       <div class="job-meta">Location: ${job.location.join(", ")}</div>
       <div class="job-meta">Type: ${job.type}</div>
       <p class="job-desc">${job.description.slice(0, 90)}...</p>
+<<<<<<< HEAD
       <a href="job-details.html?id=${job.id}" target="_blank" class="view-job-btn">View Job</a>
+=======
+
+   <div class="job-actions">
+      <a href="job-details.html?id=${job.id}" class="view-job-btn">
+        View Job
+       </a>
+
+      <button class="bookmark-btn">
+         <svg class="bookmark-icon" viewBox="0 0 24 24">
+           <path d="M6 2h12a2 2 0 0 1 2 2v18l-8-5-8 5V4a2 2 0 0 1 2-2z"/>
+         </svg>
+      </button>
+   </div>
+>>>>>>> 73bbd6e (add a event listener for applied job in the script and adjust bookmark in the jobs.js)
 
     `;
 
