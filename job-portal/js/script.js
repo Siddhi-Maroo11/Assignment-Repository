@@ -12,6 +12,9 @@ const filterExperience = document.getElementById("filterExperience");
 
 const sortSelect = document.getElementById("sortSelect");
 
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
 searchInput.addEventListener("input", event => {
   state.searchText = event.target.value;
   clearSearch.classList.toggle("hidden", !event.target.value);
@@ -44,6 +47,10 @@ sortSelect.addEventListener("change", event => {
   state.sortBy = event.target.value;
   state.currentPage = 1;
   applySearchAndFilters();
+});
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
 });
 
 fetchJobs();

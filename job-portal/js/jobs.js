@@ -46,7 +46,7 @@ export function renderJobs() {
            <path d="M6 2h12a2 2 0 0 1 2 2v18l-8-5-8 5V4a2 2 0 0 1 2-2z"/>
          </svg>
       </button>
-</div>
+   </div>
 
     `;
 
