@@ -1,0 +1,43 @@
+.bookmark-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bookmark-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #6b7280;
+  stroke-width: 2;
+}
+
+.bookmark-btn.active .bookmark-icon {
+  fill: #0a1f44;
+  stroke: #0a1f44;
+}
+
+
+.job-actions {
+  position: relative;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.view-job-btn {
+  padding: 10px 26px;
+  border-radius: 22px;
+  background: #0a1f44;
+  color: #fff;
+  text-decoration: none;
+}
+
+.bookmark-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: none;
+  border: none;
+}
+
