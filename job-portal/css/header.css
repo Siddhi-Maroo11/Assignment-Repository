@@ -1,0 +1,14 @@
+.header {
+  background: #0a1f44;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
+.top-left {
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+}
