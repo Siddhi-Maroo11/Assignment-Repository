@@ -48,19 +48,6 @@
 
 }
 
-.view-job-btn {
-  margin-top: auto;
-  align-self: center;
-  padding: 10px 26px;
-  border-radius: 22px;
-  border: none;
-  background: #0a1f44;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 .no-jobs-wrapper {
   grid-column: 1 / -1;
   display: flex;
