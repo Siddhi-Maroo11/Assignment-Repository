@@ -1,17 +1,31 @@
 import { getAppliedJobs } from "./storage.js";
 
-const container = document.getElementById("appliedJobs");
-const appliedJobs = getAppliedJobs();
+const jobGrid = document.getElementById("jobGrid");
 
-if (!appliedJobs.length) {
-  container.innerHTML = `<p class="empty-message">No applied jobs yet</p>`;
+function renderAppliedJobs(jobs) {
+  jobGrid.innerHTML = "";
+
+  if (!jobs.length) {
+    jobGrid.innerHTML = "<p>No applied jobs</p>";
+    return;
+  }
+
+  jobs.forEach(job => {
+    const locationText = Array.isArray(job.location) ? job.location.join(", ") : job.location;
+
+    const card = document.createElement("div");
+    card.className = "job-card";
+    card.innerHTML = `
+      <h3>${job.title}</h3>
+      <div class="job-meta">Company: ${job.company}</div>
+      <div class="job-meta">Location: ${locationText}</div>
+      <div class="job-meta">Type: ${job.type}</div>
+      <p class="job-desc">${job.description.slice(0, 90)}...</p>
+      <a href="job-details.html?id=${job.id}" class="view-job-btn">View Job</a>
+    `;
+
+    jobGrid.appendChild(card);
+  });
 }
 
-appliedJobs.forEach(job => {
-  container.innerHTML += `
-    <div class="view-card">
-      <h3>${job.title}</h3>
-      <p>${job.company}</p>
-    </div>
-  `;
-});
+renderAppliedJobs(getAppliedJobs());

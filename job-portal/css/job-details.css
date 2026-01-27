@@ -8,7 +8,7 @@ body {
   padding: 24px;
   background: #f1f5f9;
   color: #334155;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .job-details-wrapper {
@@ -16,21 +16,21 @@ body {
   margin: auto;
   background: #ffffff;
   border-radius: 16px;
-  padding: 28px;
+  position: relative;
+  padding: 32px 28px 28px;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  position: relative;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
 }
 
 .close-button {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 34px;
+  right: 28px;
   border: none;
   background: transparent;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   color: #64748b;
 }
@@ -44,7 +44,7 @@ body {
   font-weight: 700;
   color: #0a1f44;
   text-align: center;
-  margin: 0 0 8px;
+  margin: 0;
 }
 
 .detail-section h2 {
@@ -79,21 +79,58 @@ body {
 }
 
 .apply-btn {
-  margin-top: 10px;
-  margin-left: 197px;
+  margin-top: 16px;
+  align-self: center;
   background: #0a1f44;
   color: #ffffff;
   border: none;
-  padding: 10px;
+  padding: 10px 22px;
   border-radius: 26px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  width: 150px;
+  width: 160px;
 }
 
 .apply-btn:hover {
   background: #102a5c;
   transform: translateY(-1px);
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* background: rgba(0,0,0,0.4); */
+  justify-content: center;
+  align-items: center;
+  border: black;
+}
+
+.modal-content {
+  background: #d9d8e0;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+#uploadModal .modal-content button {
+  padding: 10px 26px;
+  border-radius: 22px;
+  background: #0a1f44;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: 8px 6px;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+#uploadModal .modal-content button:hover {
+  opacity: 0.9;
+}
+

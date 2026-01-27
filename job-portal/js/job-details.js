@@ -12,6 +12,15 @@ const responsibilitiesList = document.getElementById("jobResponsibilities");
 const skillsList = document.getElementById("jobSkills");
 const closeButton = document.getElementById("closeJob");
 
+const applyBtn = document.getElementById("applyBtn");
+const uploadModal = document.getElementById("uploadModal");
+const uploadBtn = document.getElementById("uploadBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+
+const hiddenInput = document.createElement("input");
+hiddenInput.type = "file";
+hiddenInput.accept = ".pdf,.doc,.docx";
+
 const urlParams = new URLSearchParams(window.location.search);
 const jobId = Number(urlParams.get("id"));
 
@@ -19,17 +28,15 @@ fetch("data/jobs.json")
   .then(response => response.json())
   .then(jobs => {
     const selectedJob = jobs.find(job => job.id === jobId);
-
     if (!selectedJob) {
       jobTitleElement.textContent = "Job not found";
       return;
     }
-
-    currentJob = selectedJob; 
+    currentJob = selectedJob;
 
     jobTitleElement.textContent = selectedJob.title;
     jobCompanyElement.textContent = selectedJob.company;
-    jobLocationElement.textContent = selectedJob.location.join(", ");
+    jobLocationElement.textContent = Array.isArray(selectedJob.location) ? selectedJob.location.join(", ") : selectedJob.location;
     jobTypeElement.textContent = selectedJob.type;
     jobExperienceElement.textContent = selectedJob.experience;
     jobDescriptionElement.textContent = selectedJob.description;
@@ -48,11 +55,25 @@ fetch("data/jobs.json")
   });
 
 closeButton.addEventListener("click", () => {
-  window.close();
+  window.history.back();
 });
 
-const applyBtn = document.getElementById("applyBtn");
-
 applyBtn.addEventListener("click", () => {
+  if (!currentJob) return;
+  uploadModal.style.display = "flex";
+});
+
+cancelBtn.addEventListener("click", () => {
+  uploadModal.style.display = "none";
+});
+
+uploadBtn.addEventListener("click", () => {
+  hiddenInput.click();
+});
+
+hiddenInput.addEventListener("change", () => {
+  if (!hiddenInput.files.length) return;
   applyForJob(currentJob);
+  alert("Resume uploaded successfully ✅");
+  uploadModal.style.display = "none";
 });
