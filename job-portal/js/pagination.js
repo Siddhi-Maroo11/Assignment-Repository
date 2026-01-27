@@ -12,37 +12,37 @@ export function renderPagination() {
 
   if (totalPages <= 1) return;
 
-  const prevButton = document.createElement("button");
-  prevButton.textContent = "<";
-  prevButton.disabled = state.currentPage === 1;
-  prevButton.onclick = () => {
-    state.currentPage--;
-    renderJobs();
-  };
-  paginationContainer.appendChild(prevButton);
+  const createButton = (label, targetPage, isArrow = false) => {
+    const button = document.createElement("button");
+    button.textContent = label;
 
-  for (let page = 1; page <= totalPages; page++) {
-    const btn = document.createElement("button");
-    btn.textContent = page;
-
-    if (page === state.currentPage) {
-      btn.classList.add("active");
-    }
-
-    btn.onclick = () => {
-      state.currentPage = page;
+    button.onclick = () => {
+      state.currentPage = targetPage;
       renderJobs();
     };
 
-    paginationContainer.appendChild(btn);
+    if (isArrow) button.classList.add("arrow-btn");
+    if (targetPage === state.currentPage && !isArrow) {
+      button.classList.add("active");
+    }
+
+    return button;
+  };
+
+  if (state.currentPage > 1) {
+    paginationContainer.appendChild(
+      createButton("←", state.currentPage - 1, true)
+    );
   }
 
-  const nextButton = document.createElement("button");
-  nextButton.textContent = ">";
-  nextButton.disabled = state.currentPage === totalPages;
-  nextButton.onclick = () => {
-    state.currentPage++;
-    renderJobs();
-  };
-  paginationContainer.appendChild(nextButton);
+  const pageInfo = document.createElement("span");
+  pageInfo.textContent = `${state.currentPage} of ${totalPages}`;
+  pageInfo.classList.add("page-info");
+  paginationContainer.appendChild(pageInfo);
+
+  if (state.currentPage < totalPages) {
+    paginationContainer.appendChild(
+      createButton("→", state.currentPage + 1, true)
+    );
+  }
 }
