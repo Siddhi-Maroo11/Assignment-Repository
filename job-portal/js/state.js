@@ -6,6 +6,7 @@ export const state = {
   selectedLocation: "",
   selectedExperience: "",
   currentPage: 1,
-  jobsPerPage: 4
+  jobsPerPage: 4,
+  sortBy: "" 
 };
 
