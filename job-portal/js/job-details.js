@@ -29,6 +29,7 @@ const jobId = Number(urlParams.get("id"));
 function markAsApplied() {
   applyBtn.textContent = "Applied";
   applyBtn.disabled = true;
+  applyBtn.classList.add("applied-btn");
 }
 
 function isAlreadyApplied(jobId) {
@@ -72,7 +73,8 @@ fetch("data/jobs.json")
     if (isAlreadyApplied(selectedJob.id)) {
       markAsApplied();
     }
-  })
+
+ })
   .catch(() => {
     alert("Unable to load job details");
   });
