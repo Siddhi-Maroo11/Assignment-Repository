@@ -21,7 +21,7 @@ const cancelBtn = document.getElementById("cancelBtn");
 
 const hiddenInput = document.createElement("input");
 hiddenInput.type = "file";
-hiddenInput.accept = ".pdf,.doc,.docx";
+// hiddenInput.accept = ".pdf,.doc,.docx";
 
 const urlParams = new URLSearchParams(window.location.search);
 const jobId = Number(urlParams.get("id"));
@@ -107,20 +107,53 @@ uploadBtn.addEventListener("click", () => {
   hiddenInput.click();
 });
 
+// hiddenInput.addEventListener("change", () => {
+//   if (!hiddenInput.files.length) {
+//     alert("Unable to upload resume");
+//     return;
+//   }
+
+//   const appliedSuccessfully = applyForJob(currentJob);
+
+//   if (appliedSuccessfully) {
+//     alert("Resume uploaded successfully ✅");
+//     markAsApplied();
+//   } else {
+//     alert("Unable to upload resume");
+//   }
+
+//   uploadModal.style.display = "none";
+// });
+
 hiddenInput.addEventListener("change", () => {
-  if (!hiddenInput.files.length) {
-    alert("Unable to upload resume");
-    return;
+  try {
+    if (!hiddenInput.files.length) throw new Error("No file selected");
+
+    const file = hiddenInput.files[0];
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      throw new Error("Invalid file type! Please upload PDF or DOC/DOCX only.");
+    }
+
+    const appliedSuccessfully = applyForJob(currentJob);
+
+    if (appliedSuccessfully) {
+      alert("Resume uploaded successfully ✅");
+      markAsApplied();
+    } else {
+      alert("Unable to upload resume");
+    }
+
+    uploadModal.style.display = "none";
+
+  } catch (error) {
+    alert(error.message);
   }
-
-  const appliedSuccessfully = applyForJob(currentJob);
-
-  if (appliedSuccessfully) {
-    alert("Resume uploaded successfully ✅");
-    markAsApplied();
-  } else {
-    alert("Unable to upload resume");
-  }
-
-  uploadModal.style.display = "none";
 });
+
+
