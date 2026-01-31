@@ -15,9 +15,6 @@
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-
-  /* 🔴 OLD: height: 250px; */
-  /* ✅ NEW */
   min-height: 250px;
 }
 
@@ -48,8 +45,6 @@
   color: #6b7280;
   line-height: 1.6;
   text-align: center;
-
-  /* extra safety */
   flex-grow: 1;
 }
 
