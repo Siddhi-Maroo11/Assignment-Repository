@@ -14,10 +14,7 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.06);
   transition: all 0.3s ease;
   display: flex;
-  flex-direction: column;
-
-  /* 🔴 OLD: height: 250px; */
-  /* ✅ NEW */
+  flex-direction: column; 
   min-height: 250px;
 }
 
