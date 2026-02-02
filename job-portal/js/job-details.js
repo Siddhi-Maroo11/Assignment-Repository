@@ -107,24 +107,6 @@ uploadBtn.addEventListener("click", () => {
   hiddenInput.click();
 });
 
-// hiddenInput.addEventListener("change", () => {
-//   if (!hiddenInput.files.length) {
-//     alert("Unable to upload resume");
-//     return;
-//   }
-
-//   const appliedSuccessfully = applyForJob(currentJob);
-
-//   if (appliedSuccessfully) {
-//     alert("Resume uploaded successfully ✅");
-//     markAsApplied();
-//   } else {
-//     alert("Unable to upload resume");
-//   }
-
-//   uploadModal.style.display = "none";
-// });
-
 hiddenInput.addEventListener("change", () => {
   try {
     if (!hiddenInput.files.length) throw new Error("No file selected");
