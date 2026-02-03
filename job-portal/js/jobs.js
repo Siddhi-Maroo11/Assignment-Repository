@@ -2,6 +2,10 @@ import { state } from "./state.js";
 import { renderPagination } from "./pagination.js";
 import { sortJobs } from "./sort.js";
 import { toggleBookmark, isBookmarked } from "./bookmarks.js";
+import { handleRestrictedAction } from "./accessControl.js";
+import { getLoggedInUser } from "./auth/sessionService.js";
+import { getUsers } from "./auth/userManager.js";
+
 
 const jobGrid = document.getElementById("jobGrid");
 
@@ -56,13 +60,39 @@ export function renderJobs() {
       bookmarkBtn.classList.add("active");
     }
 
-    bookmarkBtn.addEventListener("click", () => {
-      toggleBookmark(job);
-      bookmarkBtn.classList.toggle("active");
-    });
+   bookmarkBtn.addEventListener("click", () => {
+  const access = canPerformJobAction();
+
+  if (!access.allowed) {
+    handleRestrictedAction(access.message);
+    return;
+  }
+
+  toggleBookmark(job);
+  bookmarkBtn.classList.toggle("active");
+});
+
 
     jobGrid.appendChild(card);
   });
 
   renderPagination();
 }
+
+function canPerformJobAction() {
+  const email = getLoggedInUser();
+
+  if (!email) {
+    return { allowed: false, message: "Please login to continue." };
+  }
+
+  const users = getUsers();
+  const user = users.find(u => u.email === email);
+
+  if (!user || !user.isVerified) {
+    return { allowed: false, message: "Please verify your email first." };
+  }
+
+  return { allowed: true };
+}
+
