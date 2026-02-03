@@ -2,6 +2,8 @@ import { state } from "./state.js";
 import { fetchJobs } from "./api.js";
 import { applySearchAndFilters } from "./filters.js";
 import { renderJobs } from "./jobs.js";
+import "./profile/profileMenu.js";
+
 
 const searchInput = document.getElementById("searchInput");
 const clearSearch = document.getElementById("clearSearch");
