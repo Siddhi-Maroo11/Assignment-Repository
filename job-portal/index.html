@@ -6,7 +6,6 @@
   <title>Job Portal</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/search.css">
@@ -14,6 +13,7 @@
   <link rel="stylesheet" href="css/job-card.css">
   <link rel="stylesheet" href="css/pagination.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/bookmark.css">
 
 </head>
 
@@ -21,8 +21,16 @@
 
 <main>
 
-<header class="header">
-  <div class="top-left">CareerPath</div>
+<header class="navbar">
+  <div class="logo">CareerPath</div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Jobs</a>
+    <a href="saved-jobs.html">Saved Jobs</a>
+    <a href="applied-jobs.html">Applied Jobs</a>
+  </nav>
+
+  <button class="menu-btn" id="menuBtn">☰</button>
 </header>
 
 <section class="search-section">
@@ -48,6 +56,12 @@
 
   <select id="filterExperience">
     <option value="">All Experience Levels</option>
+  </select>
+
+  <select id="sortSelect" class="filter-select">
+  <option value="">Sort By</option>
+  <option value="company">Company Name</option>
+  <option value="experience">Experience</option>
   </select>
 </section>
 
