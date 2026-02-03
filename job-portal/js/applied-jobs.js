@@ -19,11 +19,13 @@ function renderAppliedJobs(jobs) {
 
       <h3>${job.title}</h3>
       <div class="job-meta">Company: ${job.company}</div>
-      <div class="job-meta">Location: ${job.location.join(", ")}</div>
+      <div class="job-meta">Location: ${
+        Array.isArray(job.location) ? job.location.join(", ") : job.location
+      }</div>
       <div class="job-meta">Type: ${job.type}</div>
 
       <p class="job-desc">
-        ${job.description.slice(0, 90)}...
+        ${job.description ? job.description.slice(0, 90) : ""}
       </p>
 
       <a href="job-details.html?id=${job.id}" class="view-job-btn">
@@ -32,12 +34,8 @@ function renderAppliedJobs(jobs) {
     `;
 
     const removeButton = card.querySelector(".remove-applied-btn");
-
     removeButton.addEventListener("click", () => {
-      const updatedAppliedJobs = jobs.filter(
-        appliedJob => appliedJob.id !== job.id
-      );
-
+      const updatedAppliedJobs = jobs.filter(appliedJob => appliedJob.id !== job.id);
       saveAppliedJobs(updatedAppliedJobs);
       renderAppliedJobs(updatedAppliedJobs);
     });
