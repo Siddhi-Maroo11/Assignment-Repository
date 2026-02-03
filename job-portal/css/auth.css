@@ -1,0 +1,75 @@
+body.auth-page {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+.auth-container {
+  width: 350px;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.auth-container button:hover {
+  background-color: #0056b3;
+}
+
+.auth-container .register-link {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.auth-container .register-link:hover {
+  text-decoration: underline;
+}
+
+.auth-container .error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#forgotPasswordBtn {
+  margin-top: 10px;
+  background: none;
+  color: #0066cc;
+  border: none;
+  cursor: pointer;
+}
