@@ -1,28 +1,37 @@
-import { getAppliedJobs, saveAppliedJobs } from "./storage.js";
+import { addAppliedJob, removeAppliedJob, getAppliedJobs } from "./storage.js";
+import { getLoggedInUser } from "./auth/sessionService.js";
 
 export function applyForJob(job) {
   if (!job || !job.id) return false;
 
-  const appliedJobs = getAppliedJobs();
+  const email = getLoggedInUser();
+  if (!email) return false; 
 
-  const alreadyApplied = appliedJobs.some(
-    appliedJob => appliedJob.id === job.id
-  );
-
-  if (alreadyApplied) {
-    return false;
-  }
-
-  appliedJobs.push({
+  addAppliedJob({
     id: job.id,
     title: job.title,
     company: job.company,
     location: job.location,
     type: job.type,
-    description: job.description,
     appliedAt: new Date().toISOString()
   });
 
-  saveAppliedJobs(appliedJobs);
   return true;
+}
+
+export function cancelAppliedJob(jobId) {
+  if (!jobId) return false;
+
+  const email = getLoggedInUser();
+  if (!email) return false;
+
+  removeAppliedJob(jobId);
+  return true;
+}
+
+export function getAllAppliedJobs() {
+  const email = getLoggedInUser();
+  if (!email) return [];
+
+  return getAppliedJobs();
 }
