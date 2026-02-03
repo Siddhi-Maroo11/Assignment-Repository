@@ -1,9 +1,16 @@
 import { getBookmarkedJobs, saveBookmarkedJobs } from "./storage.js";
+import { getUserProfile } from "./auth/userManager.js";
+import { getLoggedInUser, getLoggedInUserProfile } from "./auth/sessionService.js";
 import { showToast } from "./toast.js";
 
 export function isBookmarked(jobId) {
-  const bookmarkedJobs = getBookmarkedJobs();
-  return bookmarkedJobs.some(bookmarkedJob => bookmarkedJob.id === jobId);
+  const email = getLoggedInUser();
+  if (!email) return false;
+
+  const user = getLoggedInUserProfile();
+  if (!user) return false;
+
+  return user.savedJobs.some(savedJob => savedJob.id === jobId);
 }
 
 export function toggleBookmark(job) {
@@ -12,22 +19,25 @@ export function toggleBookmark(job) {
     return;
   }
 
-  const bookmarkedJobs = getBookmarkedJobs();
-  const isAlreadyBookmarked = bookmarkedJobs.some(
-    bookmarkedJob => bookmarkedJob.id === job.id
-  );
+  const email = getLoggedInUser();
+  if (!email) {
+    showToast("Please login first", "error");
+    return;
+  }
 
-  const updatedBookmarks = isAlreadyBookmarked
-    ? bookmarkedJobs.filter(bookmarkedJob => bookmarkedJob.id !== job.id)
-    : [...bookmarkedJobs, job];
+  const user = getLoggedInUserProfile();
+  if (!user) return;
 
-  saveBookmarkedJobs(updatedBookmarks);
+  const isAlreadySaved = user.savedJobs.some(savedJob => savedJob.id === job.id);
+
+  user.savedJobs = isAlreadySaved
+    ? user.savedJobs.filter(savedJob => savedJob.id !== job.id)
+    : [...user.savedJobs, job];
+
+  localStorage.setItem("USER_" + email, JSON.stringify(user));
 
   showToast(
-    isAlreadyBookmarked
-      ? "Job removed from saved jobs"
-      : "Job saved successfully",
+    isAlreadySaved ? "Job removed from saved jobs" : "Job saved successfully",
     "success"
   );
 }
-
