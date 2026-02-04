@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Job Details</title>
 
+  <link rel="stylesheet" href="css/modal.css" />
   <link rel="stylesheet" href="css/job-details.css" />
 </head>
 
@@ -12,12 +12,12 @@
 
 <div class="job-details-wrapper">
 
-  <button class="close-button" id="closeJob">✕</button>
+  <button id="closeJob" class="close-button">✕</button>
 
-  <h1 id="jobTitle"></h1>
+  <h1 id="jobTitle" class="job-title"></h1>
 
   <section class="detail-section">
-    <h2>Job Description</h2>
+    <h2>Description</h2>
     <p id="jobDescription"></p>
   </section>
 
@@ -27,33 +27,44 @@
   </section>
 
   <section class="detail-section">
-    <h2>Skills Required</h2>
+    <h2>Skills</h2>
     <ul id="jobSkills"></ul>
   </section>
 
-  <section class="detail-section">
-    <h2>Job Information</h2>
-    <ul class="job-info-list">
-      <li><strong>Company:</strong> <span id="jobCompany"></span></li>
-      <li><strong>Location:</strong> <span id="jobLocation"></span></li>
-      <li><strong>Type:</strong> <span id="jobType"></span></li>
-      <li><strong>Experience:</strong> <span id="jobExperience"></span></li>
-    </ul>
+  <section class="job-meta-section">
+    <div class="job-meta-item">
+      <div class="meta-label">Location</div>
+      <div id="jobLocation" class="meta-value"></div>
+    </div>
+
+    <div class="job-meta-item">
+      <div class="meta-label">Experience</div>
+      <div id="jobExperience" class="meta-value"></div>
+    </div>
   </section>
 
-  <button id="applyBtn" class="apply-btn">
-    Apply Now
-  </button>
-  
-  <div id="uploadModal" class="modal">
-  <div class="modal-content">
-    <h3>Upload Resume</h3>
-    <button id="uploadBtn">Upload Resume</button>
-    <button id="cancelBtn">Cancel</button>
+  <button id="applyBtn" class="apply-btn">Apply Now</button>
+
+  <div id="accessModal" class="modal hidden">
+    <div class="modal-content">
+      <p id="modalMessage"></p>
+      <div class="modal-actions">
+        <button id="loginRedirectBtn">Login</button>
+        <button id="closeModal">Close</button>
+      </div>
+    </div>
   </div>
-</div>
+
+  <div id="uploadModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Upload Resume</h3>
+      <button id="uploadBtn">Upload</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </div>
 
 </div>
+
 <script type="module" src="js/job-details.js"></script>
 </body>
 </html>

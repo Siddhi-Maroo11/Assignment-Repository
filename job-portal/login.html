@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+
+<div class="auth-container">
+  <h2>Login</h2>
+  <input type="email" id="emailInput" placeholder="Enter your Email" />
+  <input type="password" id="passwordInput" placeholder="Enter Password" />
+  <button id="loginBtn">Login</button>
+  <div id="error" class="error"></div>
+  <button id="forgotPasswordBtn" class="hidden">
+      Forgot Password?
+  </button>
+
+  <p class="register-link" id="registerLink">Don't have an account? Register</p>
+</div>
+
+<script type="module" src="js/login/login.js"></script>
+</body>
+</html>
