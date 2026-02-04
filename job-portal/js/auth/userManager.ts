@@ -1,5 +1,6 @@
 import { hashPassword, verifyPassword } from "./authUtils.js";
 import { generateOTP, validateOTP } from "./otpService.js";
+import { getFromStorage, setToStorage } from "./storageHelper.js";
 
 const USER_PREFIX = "USER_";
 const MAX_LOGIN_ATTEMPTS = 3;
@@ -10,22 +11,25 @@ function getUserKey(email) {
 
 export function getUsers() {
   const users = [];
+
   for (let index = 0; index < localStorage.length; index++) {
     const key = localStorage.key(index);
+
     if (key.startsWith(USER_PREFIX)) {
-      users.push(JSON.parse(localStorage.getItem(key)));
+      const user = getFromStorage(key);
+      if (user) users.push(user);
     }
   }
+
   return users;
 }
 
 export function getUserProfile(email) {
-  const data = localStorage.getItem(getUserKey(email));
-  return data ? JSON.parse(data) : null;
+  return getFromStorage(getUserKey(email));
 }
 
 function saveUser(user) {
-  localStorage.setItem(getUserKey(user.email), JSON.stringify(user));
+  setToStorage(getUserKey(user.email), user);
 }
 
 export async function registerUser(name, email, password) {
@@ -69,7 +73,6 @@ export async function loginUser(email, password) {
   const user = getUserProfile(email);
   if (!user) throw new Error("EMAIL_NOT_FOUND");
 
- 
   if (user.loginAttempts >= MAX_LOGIN_ATTEMPTS) {
     throw new Error("ACCOUNT_LOCKED");
   }
@@ -87,7 +90,6 @@ export async function loginUser(email, password) {
     throw new Error("WRONG_PASSWORD");
   }
 
- 
   user.loginAttempts = 0;
   saveUser(user);
   return true;
@@ -98,6 +100,6 @@ export async function resetPassword(email, newPassword) {
   if (!user) throw new Error("Email not registered");
 
   user.passwordHash = await hashPassword(newPassword);
-  user.loginAttempts = 0; 
+  user.loginAttempts = 0;
   saveUser(user);
 }
