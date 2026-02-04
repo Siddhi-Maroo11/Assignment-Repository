@@ -1,20 +1,12 @@
 import { registerUser } from "../auth/userManager.js";
 import { setLoginSession } from "../auth/sessionService.js";
+import { isValidEmail, isValidPassword } from "../auth/validation.js";
 
 const nameInput = document.getElementById("nameInput") as HTMLInputElement;
 const emailInput = document.getElementById("emailInput") as HTMLInputElement;
 const passwordInput = document.getElementById("passwordInput") as HTMLInputElement;
 const registerBtn = document.getElementById("registerBtn")!;
 const errorEl = document.getElementById("error")!;
-
-function isValidEmail(email: string): boolean {
-  const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-  return regex.test(email);
-}
-
-function isValidPassword(password: string): boolean {
-  return password.length >= 6;
-}
 
 function isValidName(name: string): boolean {
   return name.trim().length >= 2;
