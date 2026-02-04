@@ -1,6 +1,6 @@
 import { getUsers, loginUser } from "../auth/userManager.js";
 import { setLoginSession } from "../auth/sessionService.js";
-// import { isValidEmail, isValidPassword } from "../auth/validation.js";
+import { isValidEmail, isValidPassword } from "../auth/validation.js";
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const loginBtn = document.getElementById("loginBtn");
@@ -8,13 +8,6 @@ const errorElement = document.getElementById("error");
 const registerLink = document.getElementById("registerLink");
 const forgotBtn = document.getElementById("forgotPasswordBtn");
 forgotBtn.classList.add("hidden");
-function isValidEmail(email) {
-    const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    return regex.test(email);
-}
-function isValidPassword(password) {
-    return password.length >= 6;
-}
 loginBtn.addEventListener("click", async () => {
     const email = emailInput.value.trim();
     const password = passwordInput.value;
