@@ -1,6 +1,6 @@
 export type Role = "USER" | "ADMIN";
 
-export interface User {
+export interface IUser {
   id: string;
   name: string;
   email: string;
@@ -8,15 +8,15 @@ export interface User {
   isVerified: boolean;
   loginAttempts: number;
   roles: Role[];
-  otp?: OTPData;
+  otp?: IOTPData;
 }
 
-export interface OTPData {
+export interface IOTPData {
   code: string;
   expiresAt: number;
 }
 
-export interface SessionUser {
+export interface ISessionUser {
   id: string;
   name: string;
   email: string;
