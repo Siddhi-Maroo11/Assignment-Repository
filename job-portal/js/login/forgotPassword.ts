@@ -1,14 +1,11 @@
 import { resetPassword, getUsers } from "../auth/userManager.js";
+import { isValidEmail} from "../auth/validation.js";
 
 const emailInput = document.getElementById("emailInput") as HTMLInputElement;
 const newPassInput = document.getElementById("newPasswordInput") as HTMLInputElement;
 const confirmPassInput = document.getElementById("confirmPasswordInput") as HTMLInputElement;
 const resetBtn = document.getElementById("resetBtn")!;
 const error = document.getElementById("error")!;
-
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
 
 resetBtn.addEventListener("click", async () => {
   const email = emailInput.value.trim();

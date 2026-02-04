@@ -1,5 +1,6 @@
 import { getUsers, loginUser } from "../auth/userManager.js";
 import { setLoginSession } from "../auth/sessionService.js";
+// import { isValidEmail, isValidPassword } from "../auth/validation.js";
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const loginBtn = document.getElementById("loginBtn");
